@@ -1,0 +1,40 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions":[
+    {
+      "name": "client",
+      "image": "stephengrider/multi-client",
+      "hostname": "client",
+      "essential": false,
+      "memory": 128
+    },
+    {
+      "name": "server",
+      "image": "jwpacker/mulit-docker-server",
+      "hostname": "api",
+      "essential": false,
+      "memory": 128
+    },
+    {
+      "name": "worker",
+      "image": "jwpacker/mulit-docker-worker",
+      "hostname": "worker",
+      "essential": false,
+      "memory": 128
+    },
+    {
+      "name": "nginx",
+      "image": "jwpacker/mulit-docker-nginx",
+      "hostname": "nginx",
+      "essential": true,,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort":80
+        }
+      ],
+      "links": ["client", "server"],
+      "memory": 128
+    }
+  ]
+}
