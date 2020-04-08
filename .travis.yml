@@ -9,14 +9,14 @@ script:
   - docker run -e CI=true toasty87/multi-docker npm run test
 
 after_success:
-  - docker build -t toasty87/mulit-docker-client ./client
-  - docker build -t toasty87/mulit-docker-nginx ./nginx
-  - docker build -t toasty87/mulit-docker-server ./server
-  - docker build -t toasty87/mulit-docker-worker ./worker
+  - docker build -t jwpacker/mulit-docker-client ./client
+  - docker build -t jwpacker/mulit-docker-nginx ./nginx
+  - docker build -t jwpacker/mulit-docker-server ./server
+  - docker build -t jwpacker/mulit-docker-worker ./worker
 #Log into the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 # Take those images and push them to docker hub
-  - docker push toasty87/mulit-docker-client
-  - docker push toasty87/mulit-docker-nginx
-  - docker push toasty87/mulit-docker-server
-  - docker push toasty87/mulit-docker-worker
+  - docker push jwpacker/mulit-docker-client
+  - docker push jwpacker/mulit-docker-nginx
+  - docker push jwpacker/mulit-docker-server
+  - docker push jwpacker/mulit-docker-worker
