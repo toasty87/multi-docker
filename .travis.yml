@@ -16,7 +16,7 @@ after_success:
 #Log into the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 # Take those images and push them to docker hub
-  - docker push jwpacker/mulit-docker-client
   - docker push jwpacker/mulit-docker-nginx
+  - docker push jwpacker/mulit-docker-client
   - docker push jwpacker/mulit-docker-server
   - docker push jwpacker/mulit-docker-worker
